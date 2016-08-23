@@ -1,5 +1,6 @@
 <?php
 
+// Обновление в БД
 $db = new PDO("mysql:host=localhost;dbname=pdo","root","");
 
 $sql = "UPDATE users SET password=:password WHERE id=:id";

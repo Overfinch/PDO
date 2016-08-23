@@ -1,5 +1,6 @@
 <?php
 
+// Удаление с БД
 $db = new PDO("mysql:host=localhost;dbname=pdo","root","");
 
 $sql = "DELETE FROM users WHERE username=:username";
