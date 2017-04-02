@@ -1,7 +1,7 @@
 <?php
 
 // Обновление в БД
-$db = new PDO("mysql:host=localhost;dbname=pdo","root","");
+$db = new PDO("mysql:host=localhost;dbname=pdo;charset=utf8","root","");
 
 $sql = "UPDATE users SET password=:password WHERE id=:id";
 $stmt = $db->prepare($sql);

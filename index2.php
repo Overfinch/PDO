@@ -1,6 +1,6 @@
 <?php
 
-$db = new PDO("mysql:host=localhost;dbname=pdo","root",""); // инициализация
+$db = new PDO("mysql:host=localhost;dbname=pdo;charset=utf8","root",""); // инициализация
 
 $sql = "SELECT * FROM users WHERE username=:username AND password=:password LIMIT 1"; // запрос
 $stmt = $db->prepare($sql); // подготовка

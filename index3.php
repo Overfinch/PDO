@@ -2,7 +2,7 @@
 
 // вставка в БД
 
-$db = new PDO("mysql:host=localhost;dbname=pdo","root","");
+$db = new PDO("mysql:host=localhost;dbname=pdo;charset=utf8","root","");
 
 $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
 $stmp = $db->prepare($sql);

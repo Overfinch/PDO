@@ -2,7 +2,7 @@
 
 // Простая выборка
 
-$db = new PDO("mysql:host=localhost;dbname=pdo","root","");  // инициализация PDO
+$db = new PDO("mysql:host=localhost;dbname=pdo;charset=utf8","root","");  // инициализация PDO
 
 $sql = "SELECT * FROM users"; // запрос
 $result = $db->query($sql); // выполнение запроса

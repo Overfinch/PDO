@@ -1,6 +1,6 @@
 <?php
 
-$db = new PDO("mysql:host=localhost;dbname=pdo","root",""); // инициализация БД
+$db = new PDO("mysql:host=localhost;dbname=pdo;charset=utf8","root",""); // инициализация БД
 
 function showTree($p_id,$db){
     global $data; // глобальная переменная для записи в неё данных
