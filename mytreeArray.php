@@ -3,16 +3,15 @@
 $db = new PDO("mysql:host=mysql;dbname=php-test;charset=utf8","root","root");
 $categories = $db->query('SELECT * FROM categories')->fetchAll(PDO::FETCH_ASSOC);
 
-function CreateTree($array, $p_id=0)
-{
+function makeTree($array, $p_id=0){
     $result = [];
-    foreach ($array as $item){
-        if($item['p_id'] == $p_id){
-            $tempArr = CreateTree($array,$item['id']);
+    foreach ($array as $item){ // перебираем каждый эллемент массива
+        if($item['p_id'] == $p_id){ // если p_id эллемента равет p_id заданному $p_id то...
+            $tempArr = makeTree($array,$item['id']); // ... то вызываем рекурсивно функцию makeTree и передаём $item['id'] как $p_id для последующих циклов
             if (!empty($tempArr)){
-                $result[$item['name']] = CreateTree($array,$item['id']);
+                $result[$item['name']] = $tempArr; // если массив $tempArr не пустой, то добавляем его в результат
             }else{
-                $result[] = $item['name'];
+                $result[] = $item['name']; // если массив пустой, то просто добавляем имя эллемента
             }
         }
     }
@@ -20,10 +19,9 @@ function CreateTree($array, $p_id=0)
     return $result;
 }
 
-$tree = CreateTree($categories);
+$tree = makeTree($categories);
 
 echo "<pre>";
 print_r($tree);
 echo "</pre>";
-
 
